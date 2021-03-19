@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=350, initial-scale=1.0">
+    <title>Background Color Switch</title>
+</head>
+
+<style>
+    body {
+    margin-left: 36px;
+    margin-top: 36px;
+    font-family: Fira sans, sans-serif;
+    }
+
+    #buttonContainer{
+        font-family: arial;
+        color: #000000;
+        text-shadow: 1px 1px 1px white;
+        border: 2px solid #000000;
+        width: 340px;
+        padding: 8px; 
+        text-align: center;
+        border-radius: 10px;
+        margin-left: 96px;
+    }
+
+    .result{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+</style>
+
+<body>
+    <div id="buttonContainer">
+        <h1>Random Background Color Button</h1>
+            <p><button onclick="displayColor()">Click for a new color!</button></p>
+                <div class="display">
+                    <p class="result"></p>
+                </div>
+    </div>
+
+    <script>
+        const lastResult = document.querySelector('.result');
+        const arrayLength = 3;
+        
+        function displayColor(){
+            const randomColor = [];
+            for(let i=0; i<arrayLength; i++){
+                randomColor.push(Math.floor(Math.random() * 256))
+            }
+
+            document.getElementsByTagName("BODY")[0].style.backgroundColor = 'rgb('+randomColor+')';
+            var lastColor = document.getElementsByTagName("BODY")[0].style.backgroundColor;
+            lastResult.textContent = 'Current color is ' + lastColor;   
+        }
+    </script>
+</body>
+</html>
